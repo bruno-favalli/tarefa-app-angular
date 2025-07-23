@@ -1,0 +1,25 @@
+<h1>Lista de Tarefas</h1>
+
+<div class="contadores">
+  <div class="contador ativo">
+    <div class="numero">{{tarefas.length}}</div>
+    <div class="label">📋Ativas</div>
+  </div>
+  <div class="contador concluida">
+    <div class="numero">{{tarefasConcluidas}}</div>
+    <div class="label">✅Concluídas</div>
+  </div>
+
+</div>
+
+<div class="reset-container">
+<button class="resetar " (click)="resetar()">🗑 Resetar lista</button>
+</div>
+
+<app-tarefa-input (tarefaAdicionada)="adicionarTarefa($event)"></app-tarefa-input>
+
+<app-tarefa-list
+  [tarefas]="tarefas"
+  (tarefaAtualizada)="marcarComoConcluida($event)"
+  (tarefaRemovida)="removerTarefa($event)">
+</app-tarefa-list>

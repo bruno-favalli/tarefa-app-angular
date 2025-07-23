@@ -1,0 +1,17 @@
+<ul>
+  <li *ngFor="let tarefa of tarefas; let i = index">
+    <span [class.concluida]="tarefa.concluida">
+      {{ tarefa.descricao }}
+    </span>
+
+    <div class="botoes">
+      <!-- Botão de marcar/desmarcar -->
+      <button (click)="alternarConclusao(i)">
+        {{ tarefa.concluida ? '↩' : '✔' }}
+      </button>
+
+      <!-- Botão de remover -->
+      <button class="remover" (click)="removerTarefa(i)">🗑</button>
+    </div>
+  </li>
+</ul>
